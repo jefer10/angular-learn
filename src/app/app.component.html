@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 
 <input type="text" [(ngModel)]="title">
 {{title}}
@@ -25,7 +26,3 @@
     <button (click)="deleteItem(indice)">delete</button>
   </li>
 </ul>
-
-<div *ngFor="let product of products" >
-  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
-</div>

@@ -7,12 +7,21 @@ import { Product } from '../product.model'
 })
 
 export class ProductComponent{
-    @Input() product:Product|any;
+    @Input() product1: Product;
 
     @Output() productClicked:EventEmitter<any>=new EventEmitter();
 
+    constructor() { 
+        this.product1={ 
+            id: '0',
+            image: '',
+            title: '',
+            price: 0,
+            description: ''}
+    }
+
     addCarrito(){
         console.log("se agrego al carrito");
-        this.productClicked.emit(this.product.id);
+        this.productClicked.emit(this.product1.id);
     }
 }
