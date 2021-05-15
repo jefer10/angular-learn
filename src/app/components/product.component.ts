@@ -7,17 +7,11 @@ import { Product } from '../product.model'
 })
 
 export class ProductComponent{
-    @Input() product1: Product;
+    @Input() product1!: Product;
 
     @Output() productClicked:EventEmitter<any>=new EventEmitter();
 
     constructor() { 
-        this.product1={ 
-            id: '0',
-            image: '',
-            title: '',
-            price: 0,
-            description: ''}
     }
 
     addCarrito(){

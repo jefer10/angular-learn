@@ -4,5 +4,5 @@
     <img [src]="product1.image" alt="">
     <h3>{{product1.price}}</h3>
 </div>
-
+<a [routerLink]="['/products',product1.id]">ver el detalle</a>
 <button (click)="addCarrito()"> añadir a carrito </button>
