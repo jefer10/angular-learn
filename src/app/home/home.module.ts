@@ -3,12 +3,12 @@ import {CommonModule}from '@angular/common';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './../app-routing.module';
+import { RouterModule}from'@angular/router';
 
 import {BannerComponent}from'./components/banner/banner.component';
 import {HomeComponent}from'./components/home/home.component';
 import {HomeRoutingModule}from './home-routing.module';
-import { from } from 'rxjs';
+import {SharedModule}from './../shared/shared.module'
 
 @NgModule({
     declarations:[
@@ -18,6 +18,8 @@ import { from } from 'rxjs';
     imports:[
         HomeRoutingModule,
         CommonModule,
+        RouterModule,
+        SharedModule
     ]
 })
 export class HomeModule{
