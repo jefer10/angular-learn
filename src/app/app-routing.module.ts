@@ -1,7 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { from } from 'rxjs';
-import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes,PreloadAllModules, } from '@angular/router';
 import { ProductsComponent} from './products/products.component';
 import { ContactComponent} from './contact/contact.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -20,7 +18,7 @@ const routes: Routes = [
       },
       {
         path:'home',
-        component:HomeComponent
+        loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)
       },
       {
         path:'products',
@@ -44,7 +42,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy:PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
